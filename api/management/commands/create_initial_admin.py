@@ -7,12 +7,12 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         User = get_user_model()
 
-        if not User.objects.filter(username='admin').exists():
+        if not User.objects.filter(username='dba').exists():
             User.objects.create_superuser(
-                username='admin',
-                email='admin@example.com',
-                password='admin123'
-                # role='admin' is set by your manager automatically ✅
+                username='dba',
+                email='dba@example.com',
+                password='dba123',
+                role='dba'
             )
             self.stdout.write(self.style.SUCCESS("✅ Admin user created."))
         else:
